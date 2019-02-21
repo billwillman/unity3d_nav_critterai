@@ -104,6 +104,8 @@ struct dtNavMeshCreateParams
 	/// @}
 };
 
+typedef struct dtNavMeshCreateParams* pdtNavMeshCreateParams;
+
 /// Builds navigation mesh tile data from the provided tile creation data.
 /// @ingroup detour
 ///  @param[in]		params		Tile creation data.

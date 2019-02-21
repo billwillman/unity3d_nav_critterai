@@ -2,7 +2,7 @@
 #define DETOURTILECACHE_H
 
 #include "DetourStatus.h"
-
+#include "DetourNavMeshBuilder.h"
 
 
 typedef unsigned int dtObstacleRef;
@@ -99,7 +99,7 @@ struct dtTileCacheMeshProcess
 {
 	virtual ~dtTileCacheMeshProcess() { }
 
-	virtual void process(struct dtNavMeshCreateParams* params,
+	virtual void process(pdtNavMeshCreateParams params,
 						 unsigned char* polyAreas, unsigned short* polyFlags) = 0;
 };
 
