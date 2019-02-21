@@ -1,6 +1,7 @@
 #include "TileCacheUtil.h"
 #include "DetourTileCache.h"
 #include <sstream>
+#include "fastlz.h"
 
 LinearAllocator::LinearAllocator(const int cap)
 	: buffer(nullptr)
