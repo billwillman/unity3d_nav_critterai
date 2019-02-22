@@ -64,29 +64,34 @@ extern "C"
 		}
 	}
 
-	EXPORT_API dtStatus ex_dtAddObstacle(dtTileCache* owner, const float* pos, const float radius, const float height, dtObstacleRef* result)
+	EXPORT_API bool ex_dtAddObstacle(dtTileCache* owner, const float* pos, const float radius, const float height, dtObstacleRef* result)
 	{
-		return owner->addObstacle(pos, radius, height, result);
+		dtStatus status = owner->addObstacle(pos, radius, height, result);
+		return dtStatusSucceed(status);
 	}
 
-	EXPORT_API dtStatus ex_dtAddBoxObstacle(dtTileCache* owner, const float* bmin, const float* bmax, dtObstacleRef* result)
+	EXPORT_API bool ex_dtAddBoxObstacle(dtTileCache* owner, const float* bmin, const float* bmax, dtObstacleRef* result)
 	{
-		return owner->addBoxObstacle(bmin, bmax, result);
+		dtStatus status = owner->addBoxObstacle(bmin, bmax, result);
+		return dtStatusSucceed(status);
 	}
 
-	EXPORT_API dtStatus ex_dtAddBoxObstacle2(dtTileCache* owner, const float* center, const float* halfExtents, const float yRadians, dtObstacleRef* result)
+	EXPORT_API bool ex_dtAddBoxObstacle2(dtTileCache* owner, const float* center, const float* halfExtents, const float yRadians, dtObstacleRef* result)
 	{
-		return owner->addBoxObstacle(center, halfExtents, yRadians, result);
+		dtStatus status = owner->addBoxObstacle(center, halfExtents, yRadians, result);
+		return dtStatusSucceed(status);
 	}
 
-	EXPORT_API dtStatus ex_dtRemoveObstacle(dtTileCache* owner, const dtObstacleRef ref)
+	EXPORT_API bool ex_dtRemoveObstacle(dtTileCache* owner, const dtObstacleRef ref)
 	{
-		return owner->removeObstacle(ref);
+		dtStatus status = owner->removeObstacle(ref);
+		return dtStatusSucceed(status);
 	}
 
-	EXPORT_API dtStatus ex_dtTileCacheUpdate(dtNavMesh* navMesh, dtTileCache* owner, float dt)
+	EXPORT_API bool ex_dtTileCacheUpdate(dtNavMesh* navMesh, dtTileCache* owner, float dt)
 	{
-		return owner->update(dt, navMesh);
+		dtStatus status = owner->update(dt, navMesh);
+		return dtStatusSucceed(status);
 	}
 }
 
