@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using org.critterai.nav.rcn;
 #if NUNITY
@@ -7,21 +8,54 @@ using Vector3 = org.critterai.Vector3;
 using Vector3 = UnityEngine.Vector3;
 #endif
 
+/// <summary>
+/// 动态阻挡参数
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
 public struct dtTileCacheParams {
+    /// <summary>
+    /// 原始点
+    /// </summary>
     public Vector3 orig;
+    /// <summary>
+    /// 
+    /// </summary>
     public float cs, ch;
+    /// <summary>
+    /// 
+    /// </summary>
     public int width, height;
+    /// <summary>
+    /// 
+    /// </summary>
     public float walkableHeight;
+    /// <summary>
+    /// 
+    /// </summary>
     public float walkableRadius;
+    /// <summary>
+    /// 
+    /// </summary>
     public float walkableClimb;
+    /// <summary>
+    /// 
+    /// </summary>
     public float maxSimplificationError;
+    /// <summary>
+    /// 
+    /// </summary>
     public int maxTiles;
+    /// <summary>
+    /// 
+    /// </summary>
     public int maxObstacles;
 };
 
 namespace org.critterai.nav {
 
+    /// <summary>
+    /// 实现动态阻挡
+    /// </summary>
     public sealed class TileCache {
         private IntPtr m_Ptr = IntPtr.Zero;
         private IntPtr m_AllocPtr = IntPtr.Zero;
@@ -81,9 +115,9 @@ namespace org.critterai.nav {
         }
 
         /// <summary>
-        /// 
+        /// 增加BOX动态阻挡
         /// </summary>
-        /// <param name="center"></param>
+        /// <param name="center">中心点位置</param>
         /// <param name="halfExtents"></param>
         /// <param name="yRadians"></param>
         /// <param name="id"></param>

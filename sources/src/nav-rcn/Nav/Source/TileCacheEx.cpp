@@ -93,5 +93,19 @@ extern "C"
 		dtStatus status = owner->update(dt, navMesh);
 		return dtStatusSucceed(status);
 	}
+
+	// ´ÓNAVMESHµ½PARAMS
+	EXPORT_API bool ex_dtNavMeshToTileCacheParam(dtNavMesh* navMesh, dtTileCacheParams* params)
+	{
+		if (!navMesh || !params)
+			return false;
+		const float* orgSrc = navMesh->getOrig();
+		if (!orgSrc)
+			return false;
+		memcpy(params->orig, orgSrc, sizeof(float) * 3);
+
+		return true;
+	}
+
 }
 

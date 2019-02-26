@@ -342,6 +342,7 @@ public:
 	
 	/// The navigation mesh initialization params.
 	const dtNavMeshParams* getParams() const;
+	const float* getOrig() const;
 
 	/// Adds a tile to the navigation mesh.
 	///  @param[in]		data		Data for the new tile mesh. (See: #dtCreateNavMeshData)
